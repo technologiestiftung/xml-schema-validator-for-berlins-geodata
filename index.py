@@ -1,16 +1,10 @@
-from lxml import etree
 from xml_validator import validation
 
 
-
-# schema name will be input by user from list of schema names (drop-down-menue)
-schema_name = 'Brunnen'
-# load schema, all provided schemas must be stored in the schema directory as .xsd-files
-schema = etree.XMLSchema(etree.parse('schemas/'+schema_name+'.xsd'))
-
-# xml input by user, either as an file upload or an pasted text
-xml = 'testfiles/brunnen_invalid.gml'
+# set schema and xml file as parameters
+schema_name = 'Brunnen' # under construction: schema name will be input by user from list of schema names (drop-down-menue)
+xml = 'testfiles/brunnen_valid.gml' # under construction: xml input by user, either as an file upload or an pasted text
 
 # perform validation
-message = validation(schema, xml)
+message = validation(schema_name, xml)
 print(message)
