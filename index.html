@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Page Title</title>
+    <meta name="description" content="something" />
+    <meta name="author" content="me" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400|Fira+Mono:400");
+
+      html {
+        font-size: 100%;
+      } /*16px*/
+
+      body {
+        background-color: white;
+        font-family: "Fira Sans", sans-serif;
+        font-weight: 400;
+        line-height: 1.65;
+        margin: 0 auto;
+        max-width: 50em;
+        padding: 4em 1em;
+        color: #1d2429;
+      }
+
+      p {
+        margin-bottom: 1.15rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 2.75rem 0 1.05rem;
+        font-family: "Fira Sans", sans-serif;
+        font-weight: 400;
+        line-height: 1.15;
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: 2.488em;
+      }
+
+      h2 {
+        font-size: 2.074em;
+      }
+
+      h3 {
+        font-size: 1.728em;
+      }
+
+      h4 {
+        font-size: 1.44em;
+      }
+
+      h5 {
+        font-size: 1.2em;
+      }
+
+      small,
+      .text_small {
+        font-size: 0.833em;
+      }
+      body {
+      }
+
+      strong {
+        color: #333;
+      }
+
+      a {
+        color: tomato;
+      }
+      p {
+        vertical-align: text-bottom;
+      }
+      code,
+      pre {
+        font-family: "Fira Mono", monospace;
+        color: #5f6266;
+      }
+
+      code {
+        font-size: 1em;
+      }
+
+      pre {
+        border-left: 2px solid darkgray;
+        background: #f5f7f9;
+        border-bottom: 1px solid #d8dee9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>XML Validator</h1>
+    <form action="/api" method="post" enctype="multipart/form-data">
+      <label for="txt">Some text</label>
+      <input type="text" name="txt" id="txt" />
+      <label for="schema">Schema wählen</label>
+      <select name="schemas" id="schemas">
+        <option value="Brunnen">Brunnen</option>
+      </select>
+      <label for="xml">Choose a file:</label>
+      <input type="file" id="xml" name="xml" accept=".xml, .gml" />
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>
