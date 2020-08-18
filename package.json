@@ -1,0 +1,23 @@
+{
+  "name": "xml-schema-validator-for-berlins-geodata",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technologiestiftung/xml-schema-validator-for-berlins-geodata.git"
+  },
+  "keywords": [],
+  "author": "Fabian Morón Zirfas <fabianmoronzirfas@protonmail.ch> (https://fabianmoronzirfas.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/technologiestiftung/xml-schema-validator-for-berlins-geodata/issues"
+  },
+  "homepage": "https://github.com/technologiestiftung/xml-schema-validator-for-berlins-geodata#readme",
+  "devDependencies": {
+    "vercel": "19.2.0"
+  }
+}
