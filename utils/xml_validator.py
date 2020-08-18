@@ -1,4 +1,6 @@
 from lxml import etree
+import os
+
 
 def validation(schema_name, xml):
     """
@@ -11,7 +13,10 @@ def validation(schema_name, xml):
             validation_output (str): Formated string that contains validation success massage or error messages.
     """
     # load schema
-    schema = etree.XMLSchema(etree.parse('schemas/'+schema_name+'.xsd'))
+    pwd = os.getcwd()
+    print(pwd, "PWD PWD PWD")
+    schema = etree.XMLSchema(etree.parse(
+        './utils/schemas/'+schema_name+'.xsd'))
     # perform validation
     try:
         schema.assertValid(etree.parse(xml))
@@ -19,7 +24,8 @@ def validation(schema_name, xml):
     except etree.DocumentInvalid:
         validation_output = 'Die gml-Datei entspricht nicht dem vorgegebenen Schema.\n Gefundene Fehler:\r'
         for error in schema.error_log:
-            validation_output = (validation_output + '\n' + "  Line {}: {}".format(error.line, error.message))
+            validation_output = (validation_output + '\n' +
+                                 "  Line {}: {}".format(error.line, error.message))
     # save validation success message if xml is valid
     else:
         validation_output = 'Die Validierung wurde erfolgreich durchgeführt. Die gml-Datei entspricht dem vorgegebenen Schema.'
