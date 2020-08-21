@@ -16,8 +16,6 @@ xml = './utils/testfiles/brunnen_valid.gml'
 class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        pwd = os.getcwd()
-        print(pwd, "PWD PWD PWD")
         message = validation(schema_name, xml)
         print(message)
         data = {"message": message}
@@ -36,6 +34,12 @@ class handler(BaseHTTPRequestHandler):
             environ={'REQUEST_METHOD': 'POST',
                      'CONTENT_TYPE': self.headers['Content-Type'],
                      })
+        
+        xml = form.getvalue('txt')
+        schema_name = form.getvalue('schemas')
+        print(form.getvalue('schemas'))
+        message = validation(schema_name, xml)
+        
 
         # Begin the response
         self.send_response(201)
@@ -55,5 +59,5 @@ class handler(BaseHTTPRequestHandler):
             else:
                 # Regular form value
                 print(field, form[field].value)
-                self.wfile.write(bytes('hello world', "utf-8"))
+                self.wfile.write(bytes(message, "utf-8"))
         return

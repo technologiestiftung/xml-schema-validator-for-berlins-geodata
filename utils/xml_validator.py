@@ -14,12 +14,13 @@ def validation(schema_name, xml):
     """
     # load schema
     pwd = os.getcwd()
-    print(pwd, "PWD PWD PWD")
+    #print(pwd, "PWD PWD PWD")
     schema = etree.XMLSchema(etree.parse(
         './utils/schemas/'+schema_name+'.xsd'))
+    print('hiiier' + xml)
     # perform validation
     try:
-        schema.assertValid(etree.parse(xml))
+        schema.assertValid(etree.fromstring(xml.encode('utf-8')))
     # save formated error messages if xml is invalid
     except etree.DocumentInvalid:
         validation_output = 'Die gml-Datei entspricht nicht dem vorgegebenen Schema.\n Gefundene Fehler:\r'
