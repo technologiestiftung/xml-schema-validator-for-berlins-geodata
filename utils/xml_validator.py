@@ -8,16 +8,13 @@ def validation(schema_name, xml):
 
         Parameters:
             schema_name (str): Name of schema. Schemas must be stored in the schema directory as .xsd-files
-            xml (str): Path to the XML-File.
+            xml (str): XML-File
         Returns:
             validation_output (str): Formated string that contains validation success massage or error messages.
     """
     # load schema
-    pwd = os.getcwd()
-    #print(pwd, "PWD PWD PWD")
     schema = etree.XMLSchema(etree.parse(
         './utils/schemas/'+schema_name+'.xsd'))
-    print('hiiier' + xml)
     # perform validation
     try:
         schema.assertValid(etree.fromstring(xml.encode('utf-8')))
@@ -29,6 +26,6 @@ def validation(schema_name, xml):
                                  "  Line {}: {}".format(error.line, error.message))
     # save validation success message if xml is valid
     else:
-        validation_output = 'Die Validierung wurde erfolgreich durchgeführt. Die gml-Datei entspricht dem vorgegebenen Schema.'
+        validation_output = 'Die Validierung war erfolgreich. Die gml-Datei entspricht dem vorgegebenen Schema.'
 
     return validation_output

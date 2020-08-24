@@ -17,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         message = validation(schema_name, xml)
-        print(message)
+       # print(message)
         data = {"message": message}
         response = json.dumps(data)
         self.send_response(200)
@@ -34,10 +34,26 @@ class handler(BaseHTTPRequestHandler):
             environ={'REQUEST_METHOD': 'POST',
                      'CONTENT_TYPE': self.headers['Content-Type'],
                      })
+
+        # check if xml comes from uploaded file or pasted string     
+        for field in form.keys():
+            print(field)
+            field_item = form[field]
+            print(field_item)
+            if field_item.filename:
+                # The field contains an uploaded file
+                file_data = field_item.file.read()
+                file_len = len(file_data)
+                #print(file_data)
+                file_data = file_data.decode("utf-8") 
+                xml = file_data
+                xml = xml.replace("\n","       ")
+                del file_data
+                #self.wfile.write(bytes("file received", "utf-8"))
+            if form.getvalue('txt'):
+                xml = form.getvalue('txt')
         
-        xml = form.getvalue('txt')
         schema_name = form.getvalue('schemas')
-        print(form.getvalue('schemas'))
         message = validation(schema_name, xml)
         
 
@@ -47,17 +63,19 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
 
         # Echo back information about what was posted in the form
-        for field in form.keys():
-            field_item = form[field]
-            if field_item.filename:
-                # The field contains an uploaded file
-                file_data = field_item.file.read()
-                file_len = len(file_data)
-                print(file_data)
-                del file_data
-                self.wfile.write(bytes("file received", "utf-8"))
-            else:
-                # Regular form value
-                print(field, form[field].value)
-                self.wfile.write(bytes(message, "utf-8"))
+        #for field in form.keys():
+          #  field_item = form[field]
+          #  print(field)
+           # print(field_item)
+            # if field_item.filename:
+            #     # The field contains an uploaded file
+            #     file_data = field_item.file.read()
+            #     file_len = len(file_data)
+            #     print(file_data)
+            #     del file_data
+            #     self.wfile.write(bytes("file received", "utf-8"))
+            # else:
+            #     # Regular form value
+            #     print(field, form[field].value)
+        self.wfile.write(bytes(message, "utf-8"))
         return
