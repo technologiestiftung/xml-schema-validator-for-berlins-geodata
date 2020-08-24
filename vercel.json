@@ -1,4 +1,9 @@
 {
   "version": 2,
-  "public": true
+  "public": true,
+  "functions": {
+    "api/test.js": {
+      "maxDuration": 20
+    }
+  }
 }
