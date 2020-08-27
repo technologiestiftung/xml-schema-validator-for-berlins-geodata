@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Clan Medium";
+  src: url("../fonts/clan-medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Clan Book";
+  src: url("../fonts/clan-book.woff") format("woff");
+}
+
+@import "./histogram.scss";

@@ -1,0 +1,27 @@
+/* Scroll Button */
+
+.scrollToTop {
+  text-align: center;
+  text-decoration: none;
+  position: fixed;
+  bottom: 3em;
+  right: 3em;
+  display: none;
+  z-index: 1000;
+  background:#cccccc;
+  padding: 1em;
+  color:white;
+  border-radius: 50%;
+  height: 1em;
+  width: 1em;
+  font-size: 1.2em;
+}
+.scrollToTop a {
+  padding-top: 0.5em;
+}
+
+
+.scrollToTop:hover {
+  text-decoration: bolder;
+  background: #213A8F;
+}
