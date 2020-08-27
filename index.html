@@ -40,7 +40,7 @@
       <div class="section pb-6 pt-6 flex-wrapper">
         <div class="flex-wrapper col">
           <form action="/api" method="post" enctype="multipart/form-data" target="formDestination">
-            <h3><u>Schritt 1:</u></h3>
+            <h4 style= "font-weight:bold">Schritt 1:</h4>
             <br>
             <label for="schema">Wählen Sie eines der hinterlegten Schemata gegen das validiert werden soll:</label>
             <br><br>
@@ -52,7 +52,7 @@
               <option value="Brunnen">Behindertenparkplätze</option>
             </select>
             <br><br><br>
-            <h3><u>Schritt 2:</u></h3>
+            <h4 style= "font-weight:bold">Schritt 2:</h4>
             <br>
             <label for="xml">Laden Sie Ihre GML-Datei für die Validierung hoch oder kopieren Sie den Inhalt in das Textfeld:</label>
             <input type="file" id="xml" name="xml" accept=".xml, .gml" />
@@ -64,13 +64,13 @@
           </form>
 
           <br><br><br>
-          <h4>Ergebnis:</h4>
+          <h4 style= "font-size:20px; font-weight:bold">Ergebnis:</h4>
           <br>
           <iframe name="formDestination" height="200em" width="775em" style="background-color: #d3d3d3;border:1px solid #999999;"></iframe>
           </div>
         </div>
       </div>
-
+    <br>
     <div class="section pb-6 pt-6" id="intro">
       <details>
        <summary>Beispiel für einen validen Input (Brunnen)</summary>
