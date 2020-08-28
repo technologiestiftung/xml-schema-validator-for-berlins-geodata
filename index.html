@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <html lang="de" itemscope itemtype="http://schema.org/Article">
-
   <head>
     <meta charset="utf-8">
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
@@ -17,7 +16,6 @@
     @import './css/scrollTop.css';
     @import './css/index.css';
   </style>
-  </head>
   <body>
 
   <a href="javascript:" class="scrollToTop">&#x2B06;</a>
@@ -29,8 +27,6 @@
     <p class="headline-05">Ein Tool der Open Data Informationsstelle (ODIS) und der Senatsverwaltung für Stadtentwicklung und Wohnen
     </p>
     <h1 id="title">Schema-Validator</h1>
-
-
     <p class="headline-02" id="intro-text">
       Tool zur Schemavalidierung von Geodaten im GML-Format.
     </p>
@@ -55,8 +51,7 @@
             <h4 style= "font-weight:bold">Schritt 2:</h4>
             <br>
             <label for="xml">Laden Sie Ihre GML-Datei für die Validierung hoch oder kopieren Sie den Inhalt in das Textfeld:</label>
-            <input type="file" id="xml" name="xml" accept=".xml, .gml" />
-            <!-- <label for="txt">Oder kopieren Sie den Inhalt Ihrer GML in das Textfeld:</label> -->
+            <input type="file" id="xml" name="xml" accept=".xml, .gml" style='width:400px' />
             <br>
             <textarea type="text" name="txt" style="height:10em;width:70em" id="txt" ></textarea>
             <br><br>
@@ -143,6 +138,7 @@
         </ogr:FeatureCollection></xmp>
       </p>
     </details>
+    <br>
     <details>
       <summary>Beispiel für einen nicht validen Input (Brunnen)</summary>
       <p> <xmp><?xml version="1.0" encoding="utf-8" ?>
