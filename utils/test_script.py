@@ -6,15 +6,11 @@ import time
 parsed = etree.parse('./utils/schemas/Brunnen.xsd')
 # print(parsed)
 schema = etree.XMLSchema(parsed)
-print(schema)
 
-xml_string = etree.parse('./utils/testfiles/brunnen_valid.gml')
+xml_string = etree.parse('./utils/testfiles/brunnen_invalid.gml')
 try:
     schema.assertValid(xml_string)
-    print(xml_string)
-    print('heeere')
 except etree.DocumentInvalid:
-    print('heeere')
     validation_output = 'Die gml-Datei entspricht nicht dem vorgegebenen Schema.\n Gefundene Fehler:\r'
     for error in schema.error_log:
         validation_output = (validation_output + '\n' +

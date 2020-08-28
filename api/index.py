@@ -35,11 +35,11 @@ class handler(BaseHTTPRequestHandler):
                      'CONTENT_TYPE': self.headers['Content-Type'],
                      })
 
-        # check if xml comes from uploaded file or pasted string     
+        # check if xml comes from uploaded file or pasted string
+        file_check = False
+        txt_check = False     
         for field in form.keys():
-            print(field)
             field_item = form[field]
-            print(field_item)
             if field_item.filename:
                 # The field contains an uploaded file
                 file_data = field_item.file.read()
@@ -49,12 +49,22 @@ class handler(BaseHTTPRequestHandler):
                 xml = file_data
                 xml = xml.replace("\n","       ")
                 del file_data
+                file_check = True
                 #self.wfile.write(bytes("file received", "utf-8"))
             if form.getvalue('txt'):
                 xml = form.getvalue('txt')
-        
-        schema_name = form.getvalue('schemas')
-        message = validation(schema_name, xml)
+                print(xml)
+                txt_check = True
+
+        if file_check and txt_check:
+                message = '<p style="font-family: Clan Medium, sans-serif"><b style="color:#E60032">Fehler:</b> Bitte machen Sie nur eine Eingabe. Laden Sie entweder eine Datei hoch <b>oder</b> kopieren Sie die GML-Datei in das Textfeld.'
+        else:
+            try:
+                schema_name = form.getvalue('schemas')
+                message = validation(schema_name, xml)
+            except:
+                message = '<p style="font-family: Clan Medium, sans-serif"><b style="color:#E60032">Fehler:</b> Keine Datei zum validieren oder ungültige Datei. Laden Sie entweder eine Datei hoch <b>oder</b> kopieren Sie die GML-Datei in das Textfeld.'
+
         
 
         # Begin the response
