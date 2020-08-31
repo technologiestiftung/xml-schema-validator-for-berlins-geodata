@@ -39,7 +39,7 @@
       <ogr:kuenstler xsi:nil="true"/>
       <ogr:einschraen xsi:nil="true"/>
       <ogr:lagebez xsi:nil="true"/>
-      <ogr:plz>10965</ogr:plz>
+      <ogr:plz>109655</ogr:plz>
       <ogr:ortsteil xsi:nil="true"/>
       <ogr:link xsi:nil="true"/>
       <ogr:bemerkung xsi:nil="true"/>

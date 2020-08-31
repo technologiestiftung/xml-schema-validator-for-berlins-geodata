@@ -10,8 +10,8 @@
     </xs:extension>
   </xs:complexContent>
 </xs:complexType>
-<xs:element name="brunnen_neu" type="ogr:brunnen_Type" substitutionGroup="gml:_Feature"/>
-<xs:complexType name="brunnen_Type">
+<xs:element name="behindertenparkplatz" type="ogr:behindertenparkplatz_Type" substitutionGroup="gml:_Feature"/>
+<xs:complexType name="behindertenparkplatz_Type">
   <xs:complexContent>
     <xs:extension base="gml:AbstractFeatureType">
       <xs:sequence>
@@ -42,38 +42,35 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="bezeichn" nillable="false" minOccurs="1" maxOccurs="1">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="Zierbrunnen" />
-              <xs:enumeration value="Plantsche" />
-              <xs:enumeration value="Fontäne" />
-              <xs:maxLength value="11"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-        <xs:element name="jahr" nillable="true" minOccurs="0" maxOccurs="1">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:maxLength value="4"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-        <xs:element name="kuenstler" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="bezeichnun" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="30"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="einschraen" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="bemerkung" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="lagebez" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="anzahl" nillable="true" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:totalDigits value="2"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="polizei" nillable="true" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="4"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="standort" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
@@ -87,31 +84,26 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="ortsteil" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="ortsteil" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="25"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="link" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="gps_lat" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:maxLength value="254"/>
+            <xs:restriction base="xs:decimal">
+              <xs:totalDigits value="11"/>
+              <xs:fractionDigits value="6"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="bemerkung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="gps_lon" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:maxLength value="254"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-        <xs:element name="eigenname" nillable="true" minOccurs="0" maxOccurs="1">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:maxLength value="25"/>
+            <xs:restriction base="xs:decimal">
+              <xs:totalDigits value="11"/>
+              <xs:fractionDigits value="6"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
