@@ -10,13 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="content-language" content="de">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise"></script>
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <link rel="stylesheet" href="/assets/css/scrollTop.css" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/overwrites.css" />
   </head>
-  <style>
-    @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400|Fira+Mono:400");
-    @import '/assets/css/fonts.css';
-    @import '/assets/css/scrollTop.css';
-    @import '/assets/css/index.css';
-  </style>
   <body>
 
   <a href="javascript:" class="scrollToTop">&#x2B06;</a>
@@ -37,7 +35,7 @@
       <div class="section pb-6 pt-6 flex-wrapper">
         <div class="flex-wrapper col">
           <form action="/api" method="post" enctype="multipart/form-data" target="formDestination" id="form">
-            <h4 style= "font-weight:bold">Schritt 1:</h4>
+            <h4 class="bold">Schritt 1:</h4>
             <br>
             <label for="schema">Wählen Sie eines der hinterlegten Schemata gegen das validiert werden soll:</label>
             <br><br>
@@ -49,7 +47,7 @@
               <option value="Brunnen">Behindertenparkplätze</option>
             </select>
             <br><br><br>
-            <h4 style= "font-weight:bold">Schritt 2:</h4>
+            <h4 class="bold">Schritt 2:</h4>
             <br>
             <label for="xml">Laden Sie Ihre GML-Datei für die Validierung hoch oder kopieren Sie den Inhalt in das Textfeld:</label>
             <input type="file" id="xml" name="xml" accept=".xml, .gml" style='width:400px' />
@@ -465,6 +463,6 @@
       </div>
 
 
-<script src="/assets/js/index.js"></script>
+    <script src="/assets/js/index.js"></script>
   </body>
 </html>
