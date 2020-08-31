@@ -11,19 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
       resframe.style.display = "none";
     }
   }
+
   const form = document.querySelector("#form");
   if (!form) {
-    return;
+    throw new Error("Could not find form element (#form)");
   }
 
   form.addEventListener("submit", (event) => {
-    console.log("submit form");
     event.preventDefault();
     if (form instanceof HTMLFormElement) {
       const formData = new FormData(form);
-      // for (const pair of formData) {
-      //   formData.append(pair[0], pair[1]);
-      // }
+
       fetch(form.action, {
         method: "POST",
         body: formData,
