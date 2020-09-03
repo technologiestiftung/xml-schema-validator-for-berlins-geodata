@@ -52,12 +52,12 @@
       <ogr:geometryProperty><gml:Point srsName="EPSG:25833"><gml:coordinates>394529.348641691,5812275.53221021</gml:coordinates></gml:Point></ogr:geometryProperty>
       <ogr:uid>02001</ogr:uid>
       <ogr:bezirk>Mitte</ogr:bezirk>
-      <ogr:bezeichn>Plantsche</ogr:bezeichn>
+      <ogr:bezeichn>Plansche</ogr:bezeichn>
       <ogr:jahr xsi:nil="true"/>
       <ogr:kuenstler xsi:nil="true"/>
       <ogr:einschraen xsi:nil="true"/>
       <ogr:lagebez xsi:nil="true"/>
-      <ogr:plz xsi:nil="true"/>
+      <ogr:plz>12099</ogr:plz>
       <ogr:ortsteil xsi:nil="true"/>
       <ogr:link xsi:nil="true"/>
       <ogr:bemerkung xsi:nil="true"/>
