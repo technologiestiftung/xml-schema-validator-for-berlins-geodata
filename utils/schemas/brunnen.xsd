@@ -45,7 +45,9 @@
         <xs:element name="bezeichn" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="11"/>
+                <xs:enumeration value="Plansche" />
+                <xs:enumeration value="Fontäne" />
+                <xs:enumeration value="Zierbrunnen" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -77,7 +79,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="plz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="plz" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="5"/>
