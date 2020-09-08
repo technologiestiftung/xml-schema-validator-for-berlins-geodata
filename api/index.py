@@ -4,15 +4,6 @@ import json
 import os
 import cgi
 
-# set schema and xml file as parameters
-# under construction: schema name will be input by user from list of schema names (drop-down-menue)
-schema_name = 'Brunnen'
-# under construction: xml input by user, either as an file upload or an pasted text
-# xml = './utils/testfiles/brunnen_valid.gml'
-
-# perform validation
-
-
 class handler(BaseHTTPRequestHandler):
 
     # def do_GET(self):
@@ -55,7 +46,7 @@ class handler(BaseHTTPRequestHandler):
                 xml = form.getvalue('txt')
                 # print(xml)
                 txt_check = True
-
+        
         if file_check and txt_check:
             message = '<p style="font-family: Clan Medium, sans-serif"><b style="color:#E60032">Fehler:</b> Bitte machen Sie nur eine Eingabe. Laden Sie entweder eine Datei hoch <b>oder</b> kopieren Sie die GML-Datei in das Textfeld.'
         else:
@@ -63,7 +54,7 @@ class handler(BaseHTTPRequestHandler):
                 schema_name = form.getvalue('schemas')
                 message = validation(schema_name, xml)
             except:
-                message = '<p style="font-family: Clan Medium, sans-serif"><b style="color:#E60032">Fehler:</b> Keine Datei zum validieren oder ungültige Datei. Laden Sie entweder eine Datei hoch <b>oder</b> kopieren Sie die GML-Datei in das Textfeld.'
+                message = '<p style="font-family: Clan Book, sans-serif"><b style="color:#E60032">Fehler:</b> Keine Datei zum validieren oder ungültige Datei. Laden Sie entweder eine Datei hoch <b>oder</b> kopieren Sie die GML-Datei in das Textfeld.'
 
         # Begin the response
         self.send_response(201)
