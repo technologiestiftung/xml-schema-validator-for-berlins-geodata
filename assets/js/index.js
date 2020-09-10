@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // selected file is actually gone
         const it = formData.keys();
         let result = it.next();
-        formData.set("txt", fileContent);
+        // formData.set("txt", fileContent);
         while (!result.done) {
           console.log(result.value);
           result = it.next();
