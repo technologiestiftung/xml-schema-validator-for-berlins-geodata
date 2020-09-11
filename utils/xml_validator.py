@@ -20,18 +20,21 @@ def validation(schema_name, xml):
         schema.assertValid(etree.fromstring(xml.encode('utf-8')))
     # save error messages if xml is invalid
     except etree.DocumentInvalid:
-        validation_output = 'Die GML-Datei ist nicht valide! Sie entspricht nicht dem vorgegebenen Schema. Folgende Fehler wurden gefunden: '
+        validation_output = {}
         error_removal_list = ['{http://ogr.maptools.org/}']
         error_line_list = []
         for error in schema.error_log:
             if error.line not in error_line_list:
                 for text in error_removal_list:
                     cleaned_error_message = error.message.replace(text,"")
-                validation_output = (validation_output +
-                                    'Fehler in Zeile {}: {}'.format(error.line, cleaned_error_message))
+                cleaned_error_message = cleaned_error_message.replace("The element is not 'nillable'.","This element is missing.")
+                validation_output[error.line] = cleaned_error_message
                 error_line_list.append(error.line)
+        validation_output["status"] = "invalid"
+        validation_output["message"] = 'Die GML-Datei ist nicht valide! Sie entspricht nicht dem vorgegebenen Schema. Folgende Fehler wurden gefunden:'
     # save validation success message if xml is valid
     else:
-        validation_output = 'Die Validierung war erfolgreich! Die GML-Datei entspricht dem vorgegebenen Schema. Es wurden keine Fehler gefunden.'
-
+        validation_output = {"status": "valid",
+        "message":'Die Validierung war erfolgreich! Die GML-Datei entspricht dem vorgegebenen Schema. Es wurden keine Fehler gefunden.'}
+    print(validation_output)
     return validation_output
