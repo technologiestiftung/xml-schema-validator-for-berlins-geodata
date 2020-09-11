@@ -84,18 +84,35 @@ document.addEventListener("DOMContentLoaded", function () {
             // do something
             return;
           }
-          form.reset();
+          //form.reset();
           return response.json();
         })
         .then((json) => {
           console.log(json);
           if (target instanceof HTMLElement) {
-            target.innerText = json.message;
+            target.innerHTML = ""
+          for (var key in json) {
+            if (json.hasOwnProperty(key)) {
+              if (key === "status"){
+                if (json[key] === "valid"){
+                  target.innerHTML += "<h4 class='bold' style='color:#213A8F'>" + json.message + "</h4><br>";
+                } else {
+                  target.innerHTML += "<h4 class='bold' style='color:#E60032'>" + json.message + "</h4><br>";
+                }
+              }
+            }
+          }
+            for (var key in json) {
+              if (json.hasOwnProperty(key)) {
+                if (key !== "message" && key!== "status"){
+                  target.innerHTML += "<h4 class='bold'> Fehler in Zeile " + key + ":  <br><br>";
+                  target.innerHTML += json[key] + "<br><br>";
+                }
+              }
+            }
           }
         })
         .catch(console.error);
-
-      // do something with json response
     }
   });
 });
