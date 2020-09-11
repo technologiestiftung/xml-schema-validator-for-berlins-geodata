@@ -32,42 +32,47 @@
   </div>
 
   <div class="map-content grey-bg pb-6" id="timelapse-map-wrapper">
-      <div class="section pb-6 pt-6 flex-wrapper">
-        <div class="flex-wrapper col">
-          <form action="/api" method="post" enctype="multipart/form-data" target="formDestination" id="form">
-            <h4 class="bold">Schritt 1:</h4>
-            <br>
-            <label for="schema">Wählen Sie eines der hinterlegten Schemata gegen das validiert werden soll:</label>
-            <br><br>
-            <select name="schemas" id="schemas">
-              <option value="brunnen">Brunnen</option>
-              <option value="parkraumbewirtschaftung">Parkraumbewirtschaftung</option>
-              <option value="fluchtlinien">Fluchtlinien</option>
-              <option value="hundefreilaufflaechen">Hundefreilaufflächen</option>
-              <option value="behindertenparkplaetze">Behindertenparkplätze</option>
-            </select>
-            <br><br><br>
-            <h4 class="bold">Schritt 2:</h4>
-            <br>
-            <label for="xml">Laden Sie Ihre GML-Datei für die Validierung hoch oder kopieren Sie den Inhalt in das Textfeld:</label>
-            <input type="file" id="xml" name="xml" accept=".xml, .gml" style='width:400px' />
-            <br>
-            <textarea type="text" name="txt" id="txt" ></textarea>
-            <br><br>
-            <button class="button-primary" type="submit">Validieren</button>
-          </form>
-
-          <br><br><br>
-          <h4 style= "font-size:20px; font-weight:bold">Ergebnis:</h4>
+    <div class="section pb-6 pt-6 flex-wrapper">
+      <div class="flex-wrapper col">
+        <form action="/api" method="post" enctype="multipart/form-data" target="formDestination" id="form">
+          <h4 class="bold">Schritt 1:</h4>
           <br>
-          <div id="results">
-          </div>
-          <iframe id="result-iframe" name="formDestination" height="200em" width="775em" style="background-color: #d3d3d3;border:1px solid #999999;"></iframe>
-          </div>
+          <label for="schema">Wählen Sie eines der hinterlegten Schemata gegen das validiert werden soll:</label>
+          <br><br>
+          <select name="schemas" id="schemas">
+            <option value="brunnen">Brunnen</option>
+            <option value="parkraumbewirtschaftung">Parkraumbewirtschaftung</option>
+            <option value="fluchtlinien">Fluchtlinien</option>
+            <option value="hundefreilaufflaechen">Hundefreilaufflächen</option>
+            <option value="behindertenparkplaetze">Behindertenparkplätze</option>
+          </select>
+          <br><br><br>
+          <h4 class="bold">Schritt 2:</h4>
+          <br>
+          <label for="xml">Laden Sie Ihre GML-Datei für die Validierung hoch oder kopieren Sie den Inhalt in das Textfeld:</label>
+          <input type="file" id="xml" name="xml" accept=".xml, .gml" style='width:400px' />
+          <br>
+          <textarea type="text" name="txt" id="txt" ></textarea>
+          <br><br>
+          <button class="button-primary" type="submit">Validieren</button>
+        </form>
+        <br><br><br>
+        <h4 style= "font-size:20px; font-weight:bold">Ergebnis:</h4>
+        <iframe id="result-iframe" name="formDestination" height="200em" width="775em" style="background-color: #d3d3d3;border:1px solid #999999;"></iframe>
+        <div class="section pb-6 pt-6" id="results">
         </div>
       </div>
-    <br>
+    </div>
+    <!-- <div class="section pb-6 pt-6" id="results">
+    </div> -->
+  </div>
+   
     <div class="section pb-6 pt-6" id="intro">
+    <h2 class='headline-02 pt-6 mb-1'>Erläuterungen zum Tool</h2>
+    <p class="headline-04">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </p>
+    <br><br>
       <details>
        <summary>Beispiel für einen validen Input (Brunnen)</summary>
        <pre><code>
@@ -214,11 +219,6 @@
         </ogr:FeatureCollection></xmp>
       </p>
      </details>
-
-      <h2 class='headline-02 pt-6 mb-1' style="margin-top: 2em;">Erläuterungen zum Tool</h2>
-      <p class="headline-04">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
     </div>
 
     <div class="section-wrapper white">
