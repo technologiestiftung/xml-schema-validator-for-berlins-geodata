@@ -48,19 +48,21 @@ class handler(BaseHTTPRequestHandler):
                 txt_check = True
         
         if file_check and txt_check:
-            message = '<p style="font-family: Clan Medium, sans-serif"><b style="color:#E60032">Fehler:</b> Bitte machen Sie nur eine Eingabe. Laden Sie entweder eine Datei hoch <b>oder</b> kopieren Sie die GML-Datei in das Textfeld.'
+            message = {"status": "error",
+                "message":'Bitte machen Sie nur eine Eingabe. Laden Sie entweder eine Datei hoch oder kopieren Sie die GML-Datei in das Textfeld.'}
         else:
             try:
                 schema_name = form.getvalue('schemas')
                 message = validation(schema_name, xml)
             except:
-                message = '<p style="font-family: Clan Book, sans-serif"><b style="color:#E60032">Fehler:</b> Keine Datei zum validieren oder ungültige Datei. Laden Sie entweder eine Datei hoch <b>oder</b> kopieren Sie die GML-Datei in das Textfeld.'
+                message = {"status": "error",
+                    "message":'Keine Datei zum validieren oder ungültige Datei. Laden Sie entweder eine Datei hoch oder kopieren Sie die GML-Datei in das Textfeld.'}
 
         # Begin the response
         self.send_response(201)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
-        data = {"message": message}
+        data = message
         # Echo back information about what was posted in the form
         # for field in form.keys():
         #  field_item = form[field]
