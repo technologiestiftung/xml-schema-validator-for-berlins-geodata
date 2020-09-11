@@ -18,20 +18,23 @@ def validation(schema_name, xml):
     # perform validation
     try:
         schema.assertValid(etree.fromstring(xml.encode('utf-8')))
-    # save formated error messages if xml is invalid
+    # save error messages if xml is invalid
     except etree.DocumentInvalid:
-        validation_output = '<p style="font-family: Clan Book, sans-serif"><b style="color:#E60032">Die GML-Datei ist nicht valide!</b><br>Sie entspricht nicht dem vorgegebenen Schema. Folgende Fehler wurden gefunden:</p>'
+        validation_output = {}
         error_removal_list = ['{http://ogr.maptools.org/}']
         error_line_list = []
         for error in schema.error_log:
             if error.line not in error_line_list:
                 for text in error_removal_list:
                     cleaned_error_message = error.message.replace(text,"")
-                validation_output = (validation_output +
-                                    '<p style="font-family: Clan Book, sans-serif"><span style="color:#213A8F">Fehler in Zeile {}:</span> {}<br></p>'.format(error.line, cleaned_error_message))
+                cleaned_error_message = cleaned_error_message.replace("The element is not 'nillable'.","This element is missing.")
+                validation_output[error.line] = cleaned_error_message
                 error_line_list.append(error.line)
+        validation_output["status"] = "invalid"
+        validation_output["message"] = 'Die GML-Datei ist nicht valide! Sie entspricht nicht dem vorgegebenen Schema. Folgende Fehler wurden gefunden:'
     # save validation success message if xml is valid
     else:
-        validation_output = '<p style="font-family: Clan Book, sans-serif"><b style="color:#213A8F">Die Validierung war erfolgreich!</b><br> Die GML-Datei entspricht dem vorgegebenen Schema. Es wurden keine Fehler gefunden.</p>'
-
+        validation_output = {"status": "valid",
+        "message":'Die Validierung war erfolgreich! Die GML-Datei entspricht dem vorgegebenen Schema. Es wurden keine Fehler gefunden.'}
+    print(validation_output)
     return validation_output
