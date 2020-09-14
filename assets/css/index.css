@@ -1377,3 +1377,13 @@ a.blog-link:hover {
   text-decoration: none ;
   color: black;
 } 
+
+.fileinput {
+  width:400px;
+}
+
+.iframestyle{
+  background-color: #d3d3d3;
+  border:1px solid #999999;
+  margin-top:1em;
+}
