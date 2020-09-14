@@ -9,8 +9,7 @@
       <gml:coord><gml:X>390328.07203217</gml:X><gml:Y>5812275.53221021</gml:Y></gml:coord>
       <gml:coord><gml:X>395999.795455024</gml:X><gml:Y>5816266.74498926</gml:Y></gml:coord>
     </gml:Box>
-  </gml:boundedBy>
-                                                                                                     
+  </gml:boundedBy>                                                                                                   
   <gml:featureMember>
     <ogr:brunnen_neu fid="brunnen.0">
       <ogr:geometryProperty><gml:Point srsName="EPSG:25833"><gml:coordinates>390328.07203217,5816266.74498926</gml:coordinates></gml:Point></ogr:geometryProperty>
