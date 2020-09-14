@@ -56,7 +56,7 @@ class handler(BaseHTTPRequestHandler):
                 message = validation(schema_name, xml)
             except:
                 message = {"status": "error",
-                    "message":'Keine Datei zum validieren oder ungültige Datei. Laden Sie entweder eine Datei hoch oder kopieren Sie die GML-Datei in das Textfeld.'}
+                    "message":'Keine Datei zum Validieren oder ungültige Datei. Laden Sie entweder eine Datei hoch oder kopieren Sie die GML-Datei in das Textfeld.'}
 
         # Begin the response
         self.send_response(201)
