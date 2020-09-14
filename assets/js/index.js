@@ -90,22 +90,35 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((json) => {
           console.log(json);
           if (target instanceof HTMLElement) {
-            target.innerHTML = ""
-          for (var key in json) {
-            if (json.hasOwnProperty(key)) {
-              if (key === "status"){
-                if (json[key] === "valid"){
-                  target.innerHTML += "<h4 class='bold' style='color:#213A8F'>" + json.message + "</h4><br>";
-                } else {
-                  target.innerHTML += "<h4 class='bold' style='color:#E60032'>" + json.message + "</h4><br>";
+            target.innerHTML = "";
+            for (var key in json) {
+              if (json.hasOwnProperty(key)) {
+                if (key === "status") {
+                  if (json[key] === "valid") {
+                    const h4 = document.createElement("h4");
+                    h4.classList.add("bold");
+                    h4.style.color = "#213A8F";
+                    h4.textContent = json.message;
+                    target.appendChild(h4);
+                    const br = document.createElement("br");
+                    target.appendChild(br);
+                    // const br = document.createElement("br");
+
+                    // target.innerHTML += "<h4 class='bold' style='color:#213A8F'>" + json.message + "</h4><br>";
+                  } else {
+                    target.innerHTML +=
+                      "<h4 class='bold' style='color:#E60032'>" +
+                      json.message +
+                      "</h4><br>";
+                  }
                 }
               }
             }
-          }
             for (var key in json) {
               if (json.hasOwnProperty(key)) {
-                if (key !== "message" && key!== "status"){
-                  target.innerHTML += "<h4 class='bold'> Fehler in Zeile " + key + ":  <br><br>";
+                if (key !== "message" && key !== "status") {
+                  target.innerHTML +=
+                    "<h4 class='bold'> Fehler in Zeile " + key + ":  <br><br>";
                   target.innerHTML += json[key] + "<br><br>";
                 }
               }
