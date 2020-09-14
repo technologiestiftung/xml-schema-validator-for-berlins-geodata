@@ -1,4 +1,4 @@
-# XML Schema Validator for Berlins Geodata
+# XML Schema Validator for Berlin Geodata
 
 Tool for validating geodata in GML format against XML-Schemas.
 
