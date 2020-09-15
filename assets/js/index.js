@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let result = it.next();
         // formData.set("txt", fileContent);
         while (!result.done) {
-          console.log(result.value);
+         // console.log(result.value);
           result = it.next();
         }
       }
@@ -88,28 +88,25 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((json) => {
-          console.log(json);
+          //console.log(json);
           if (target instanceof HTMLElement) {
-            target.innerHTML = "";
+            target.innerHTML = "";   
+            const br = document.createElement("br");   
             for (var key in json) {
               if (json.hasOwnProperty(key)) {
                 if (key === "status") {
-                  if (json[key] === "valid") {
-                    const h4 = document.createElement("h4");
-                    h4.classList.add("bold");
+                  const h4 = document.createElement("h4");
+                  h4.classList.add("bold");
+                  h4.textContent = json.message;
+                  h4.style.paddingBottom = "1rem";
+                  if (json[key] === "valid") {                   
                     h4.style.color = "#213A8F";
-                    h4.textContent = json.message;
-                    target.appendChild(h4);
-                    const br = document.createElement("br");
+                    target.appendChild(h4);          
                     target.appendChild(br);
-                    // const br = document.createElement("br");
-
-                    // target.innerHTML += "<h4 class='bold' style='color:#213A8F'>" + json.message + "</h4><br>";
                   } else {
-                    target.innerHTML +=
-                      "<h4 class='bold' style='color:#E60032'>" +
-                      json.message +
-                      "</h4><br>";
+                    h4.style.color = "#E60032";
+                    target.appendChild(h4);          
+                    target.appendChild(br);
                   }
                 }
               }
@@ -117,9 +114,17 @@ document.addEventListener("DOMContentLoaded", function () {
             for (var key in json) {
               if (json.hasOwnProperty(key)) {
                 if (key !== "message" && key !== "status") {
-                  target.innerHTML +=
-                    "<h4 class='bold'> Fehler in Zeile " + key + ":  <br><br>";
-                  target.innerHTML += json[key] + "<br><br>";
+                  const p = document.createElement("p");
+                  p.style.paddingBottom = "0.5rem";
+                  const span = document.createElement("span");
+                  span.style.color = "#E60032";
+                  span.textContent = "Fehler in Zeile " + key + ": ";
+                  const span2 = document.createElement("span");
+                  span2.classList.add("headline-04");
+                  span2.textContent = json[key];
+                  p.appendChild(span);
+                  p.appendChild(span2);
+                  target.appendChild(p);
                 }
               }
             }
