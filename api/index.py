@@ -10,7 +10,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200, "ok")
         self.send_header('Access-Control-Allow-Credentials', 'true')
         self.send_header('Access-Control-Allow-Origin',
-                         'http://localhost:4000')
+                         '*')
         self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
         self.send_header("Access-Control-Allow-Headers",
                          "X-Requested-With, Content-type")
