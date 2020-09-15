@@ -23,18 +23,22 @@ def validation(schema_name, xml):
         validation_output = {}
         error_removal_list = ['{http://ogr.maptools.org/}']
         error_line_list = []
+        report = {}
+
         for error in schema.error_log:
             if error.line not in error_line_list:
                 for text in error_removal_list:
-                    cleaned_error_message = error.message.replace(text,"")
-                cleaned_error_message = cleaned_error_message.replace("The element is not 'nillable'.","This element is missing.")
-                validation_output[error.line] = cleaned_error_message
+                    cleaned_error_message = error.message.replace(text, "")
+                cleaned_error_message = cleaned_error_message.replace(
+                    "The element is not 'nillable'.", "This element is missing.")
+                report[error.line] = cleaned_error_message
                 error_line_list.append(error.line)
         validation_output["status"] = "invalid"
         validation_output["message"] = 'Die GML-Datei ist nicht valide! Sie entspricht nicht dem vorgegebenen Schema.'
+        validation_output["report"] = report
     # save validation success message if xml is valid
     else:
         validation_output = {"status": "valid",
-        "message":'Die Validierung war erfolgreich! Die GML-Datei entspricht dem vorgegebenen Schema. Es wurden keine Fehler gefunden.'}
+                             "message": 'Die Validierung war erfolgreich! Die GML-Datei entspricht dem vorgegebenen Schema. Es wurden keine Fehler gefunden.'}
     print(validation_output)
     return validation_output
