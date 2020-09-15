@@ -8,7 +8,7 @@ import cgi
 class handler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(200, "ok")
-        self.send_header('Access-Control-Allow-Credentials', 'true')
+        # self.send_header('Access-Control-Allow-Credentials', 'true')
         self.send_header('Access-Control-Allow-Origin',
                          '*')
         self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
@@ -36,6 +36,11 @@ class handler(BaseHTTPRequestHandler):
         # Begin the response
         self.send_response(201)
         self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin',
+                         '*')
+        self.send_header("Access-Control-Allow-Headers",
+                         "X-Requested-With, Content-type")
+
         self.end_headers()
         data = message
 
