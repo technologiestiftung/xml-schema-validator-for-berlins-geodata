@@ -21,3 +21,38 @@ h4.bold {
   line-height: 1.4rem;
   padding-bottom: 2rem;
 }
+.fileinput {
+  width: 400px;
+}
+
+.iframestyle {
+  background-color: #d3d3d3;
+  border: 1px solid #999999;
+  margin-top: 1em;
+}
+
+textarea[type="text"] {
+  height: 10em;
+  width: 100%;
+}
+iframe {
+  height: 12em;
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+  textarea[type="text"] {
+    width: 750px;
+  }
+  iframe {
+    width: 750px;
+  }
+}
+
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
