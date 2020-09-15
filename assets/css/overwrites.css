@@ -1,3 +1,23 @@
 h4.bold {
   font-weight: bold;
 }
+
+.input__textarea {
+  height: 10em;
+  width: 100%;
+}
+
+.form__validate {
+  padding-bottom: 3rem;
+}
+.report-title,
+.report-text {
+  padding-bottom: 1rem;
+}
+.report-title {
+  font-size: 1.1rem !important;
+}
+.report-text {
+  line-height: 1.4rem;
+  padding-bottom: 2rem;
+}
