@@ -31,7 +31,7 @@ def validation(schema_name, xml):
                 validation_output[error.line] = cleaned_error_message
                 error_line_list.append(error.line)
         validation_output["status"] = "invalid"
-        validation_output["message"] = 'Die GML-Datei ist nicht valide! Sie entspricht nicht dem vorgegebenen Schema. Folgende Fehler wurden gefunden:'
+        validation_output["message"] = 'Die GML-Datei ist nicht valide! Sie entspricht nicht dem vorgegebenen Schema.'
     # save validation success message if xml is valid
     else:
         validation_output = {"status": "valid",
