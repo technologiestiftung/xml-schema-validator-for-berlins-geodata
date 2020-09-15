@@ -6,14 +6,17 @@ import cgi
 
 
 class handler(BaseHTTPRequestHandler):
-    def do_OPTIONS(self):
-        self.send_response(200, "ok")
-        # self.send_header('Access-Control-Allow-Credentials', 'true')
-        self.send_header('Access-Control-Allow-Origin',
-                         '*')
-        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    def _send_cors_headers(self):
+        """ Sets headers required for CORS """
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "POST,OPTIONS")
         self.send_header("Access-Control-Allow-Headers",
-                         "X-Requested-With, Content-type")
+                         "x-api-key,Content-Type")
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self._send_cors_headers()
+        self.end_headers()
 
     def do_POST(self):
         # Parse the form data posted
@@ -35,12 +38,8 @@ class handler(BaseHTTPRequestHandler):
 
         # Begin the response
         self.send_response(201)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin',
-                         '*')
-        self.send_header("Access-Control-Allow-Headers",
-                         "X-Requested-With, Content-type")
-
+        self._send_cors_headers()
+        self.send_header("Content-Type", "application/json")
         self.end_headers()
         data = message
 
