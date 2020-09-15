@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let result = it.next();
         // formData.set("txt", fileContent);
         while (!result.done) {
-         // console.log(result.value);
+          // console.log(result.value);
           result = it.next();
         }
       }
@@ -88,43 +88,55 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((json) => {
-          //console.log(json);
+          console.log(json);
           if (target instanceof HTMLElement) {
-            target.innerHTML = "";   
-            const br = document.createElement("br");   
+            target.innerHTML = "";
+            // const br = document.createElement("br");
+            const h3 = document.createElement("h3");
+            const report = document.createElement("p");
+            h3.classList.add("bold", "report-title", "headline-03");
             for (var key in json) {
               if (json.hasOwnProperty(key)) {
                 if (key === "status") {
-                  const h4 = document.createElement("h4");
-                  h4.classList.add("bold");
-                  h4.textContent = json.message;
-                  h4.style.paddingBottom = "1rem";
-                  if (json[key] === "valid") {                   
-                    h4.style.color = "#213A8F";
-                    target.appendChild(h4);          
-                    target.appendChild(br);
-                  } else {
-                    h4.style.color = "#E60032";
-                    target.appendChild(h4);          
-                    target.appendChild(br);
+                  switch (json[key]) {
+                    case "invalid": {
+                      h3.textContent = "Die GML Datei ist nicht valide";
+                      console.log("invalid");
+                      break;
+                    }
+                    case "valid": {
+                      h3.textContent = "Die Validierung war erfolgreich";
+                      report.textContent = "Gut gemacht";
+                      console.log("valid");
+
+                      break;
+                    }
+                    case "error": {
+                      h3.textContent =
+                        "Keine Datei zum Validieren oder ungültige Datei";
+                      console.log("error");
+
+                      break;
+                    }
                   }
-                }
-              }
-            }
-            for (var key in json) {
-              if (json.hasOwnProperty(key)) {
-                if (key !== "message" && key !== "status") {
-                  const p = document.createElement("p");
-                  p.style.paddingBottom = "0.5rem";
-                  const span = document.createElement("span");
-                  span.style.color = "#E60032";
-                  span.textContent = "Fehler in Zeile " + key + ": ";
-                  const span2 = document.createElement("span");
-                  span2.classList.add("headline-04");
-                  span2.textContent = json[key];
-                  p.appendChild(span);
-                  p.appendChild(span2);
-                  target.appendChild(p);
+                  target.appendChild(h3);
+                } else if (key === "report") {
+                  const reportKeys = Object.keys(json.report);
+                  for (const reportKey of reportKeys) {
+                    const report = json.report[reportKey];
+                    const reportTitle = document.createElement("h4");
+                    reportTitle.classList.add("bold", "report-title");
+                    reportTitle.textContent = `Fehler in Zeile ${reportKey}`;
+                    const p = document.createElement("p");
+                    p.classList.add("report-text", "headline-04");
+                    // const span2 = document.createElement("span");
+                    // span2.classList.add("headline-04");
+                    p.textContent = report;
+
+                    target.appendChild(reportTitle);
+                    // p.appendChild(span2);
+                    target.appendChild(p);
+                  }
                 }
               }
             }
