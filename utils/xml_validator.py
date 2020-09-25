@@ -26,7 +26,7 @@ def validation(schema_name, xml):
         else:
             previous_elementtag = elementtag.tag
 
-    parsed.xpath("//*[@name='brunnen']")[0].attrib['name'] = elementtag_from_gml
+    parsed.xpath("//*[@name='"+ schema_name +"']")[0].attrib['name'] = elementtag_from_gml
 
     schema = etree.XMLSchema(parsed)
 
