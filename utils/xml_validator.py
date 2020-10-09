@@ -13,11 +13,28 @@ def validation(schema_name, xml):
             validation_output (str): Formated string that contains validation success massage or error messages.
     """
     # load schema
-    schema = etree.XMLSchema(etree.parse(
-        './utils/schemas/'+schema_name+'.xsd'))
+    parsed = etree.parse('./utils/schemas/'+schema_name+'.xsd')
+
+    xml_string = etree.fromstring(xml.encode('utf-8'))
+
+    previous_elementtag = ''
+    for elementtag in xml_string.getiterator():
+        if previous_elementtag == "{http://www.opengis.net/gml}featureMember":
+            elementtag_from_gml = str(elementtag.tag)
+            elementtag_from_gml = elementtag_from_gml.replace('{http://ogr.maptools.org/}', '')
+            break
+        else:
+            previous_elementtag = elementtag.tag
+
+    parsed.xpath("//*[@name='"+ schema_name +"']")[0].attrib['name'] = elementtag_from_gml
+
+    schema = etree.XMLSchema(parsed)
+
+    #schema = etree.XMLSchema(etree.parse(
+     #   './utils/schemas/'+schema_name+'.xsd'))
     # perform validation
     try:
-        schema.assertValid(etree.fromstring(xml.encode('utf-8')))
+        schema.assertValid(xml_string)
     # save error messages if xml is invalid
     except etree.DocumentInvalid:
         validation_output = {}

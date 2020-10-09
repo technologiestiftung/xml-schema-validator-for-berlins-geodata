@@ -10,8 +10,8 @@
     </xs:extension>
   </xs:complexContent>
 </xs:complexType>
-<xs:element name="brunnen_neu" type="ogr:brunnen_neu_Type" substitutionGroup="gml:_Feature"/>
-<xs:complexType name="brunnen_neu_Type">
+<xs:element name="brunnen" type="ogr:brunnen_Type" substitutionGroup="gml:_Feature"/>
+<xs:complexType name="brunnen_Type">
   <xs:complexContent>
     <xs:extension base="gml:AbstractFeatureType">
       <xs:sequence>
