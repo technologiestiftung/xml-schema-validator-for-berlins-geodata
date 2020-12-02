@@ -10,8 +10,8 @@
     </xs:extension>
   </xs:complexContent>
 </xs:complexType>
-<xs:element name="behindertenparkplatz" type="ogr:behindertenparkplatz_Type" substitutionGroup="gml:_Feature"/>
-<xs:complexType name="behindertenparkplatz_Type">
+<xs:element name="behindertenparkplaetze" type="ogr:behindertenparkplaetze_Type" substitutionGroup="gml:_Feature"/>
+<xs:complexType name="behindertenparkplaetze_Type">
   <xs:complexContent>
     <xs:extension base="gml:AbstractFeatureType">
       <xs:sequence>

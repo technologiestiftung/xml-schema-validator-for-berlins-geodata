@@ -12,26 +12,24 @@ def validation(schema_name, xml):
         Returns:
             validation_output (str): Formated string that contains validation success massage or error messages.
     """
-    # load schema
+    # parse schema and xml
     parsed = etree.parse('./utils/schemas/'+schema_name+'.xsd')
-
     xml_string = etree.fromstring(xml.encode('utf-8'))
 
+    # find element name from input xml
     previous_elementtag = ''
     for elementtag in xml_string.getiterator():
-        if previous_elementtag == "{http://www.opengis.net/gml}featureMember":
+        if (previous_elementtag == "{http://www.opengis.net/gml}featureMember") or (previous_elementtag == "{http://ogr.maptools.org/}featureMember"):
             elementtag_from_gml = str(elementtag.tag)
             elementtag_from_gml = elementtag_from_gml.replace('{http://ogr.maptools.org/}', '')
             break
         else:
             previous_elementtag = elementtag.tag
 
+    # replace element name in xsd with element name of xml
     parsed.xpath("//*[@name='"+ schema_name +"']")[0].attrib['name'] = elementtag_from_gml
-
     schema = etree.XMLSchema(parsed)
 
-    #schema = etree.XMLSchema(etree.parse(
-     #   './utils/schemas/'+schema_name+'.xsd'))
     # perform validation
     try:
         schema.assertValid(xml_string)
