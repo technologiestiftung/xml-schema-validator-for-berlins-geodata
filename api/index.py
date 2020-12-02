@@ -28,6 +28,10 @@ class handler(BaseHTTPRequestHandler):
                      })
 
         xml = form.getvalue('txt')
+        # Delete empty rows in the beginning of the parsed text
+        while xml.split('\n',1)[0] == '\r':
+            xml = xml.split('\n',1)[-1]
+
 
         try:
             schema_name = form.getvalue('schemas')

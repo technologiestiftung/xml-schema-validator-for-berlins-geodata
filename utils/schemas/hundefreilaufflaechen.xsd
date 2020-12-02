@@ -10,8 +10,8 @@
     </xs:extension>
   </xs:complexContent>
 </xs:complexType>
-<xs:element name="hundefreilauf" type="ogr:hundefreilauf_Type" substitutionGroup="gml:_Feature"/>
-<xs:complexType name="hundefreilauf_Type">
+<xs:element name="hundefreilaufflaechen" type="ogr:hundefreilaufflaechen_Type" substitutionGroup="gml:_Feature"/>
+<xs:complexType name="hundefreilaufflaechen_Type">
   <xs:complexContent>
     <xs:extension base="gml:AbstractFeatureType">
       <xs:sequence>
