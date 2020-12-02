@@ -93,33 +93,37 @@ document.addEventListener("DOMContentLoaded", function () {
             target.innerHTML = "";
             // const br = document.createElement("br");
             const h3 = document.createElement("h3");
-            const report = document.createElement("p");
+            const report_status = document.createElement("p");
+            report_status.classList.add("bold", "report-title");
             h3.classList.add("bold", "report-title", "headline-03");
             for (var key in json) {
               if (json.hasOwnProperty(key)) {
                 if (key === "status") {
                   switch (json[key]) {
                     case "invalid": {
-                      h3.textContent = "Die GML Datei ist nicht valide";
+                      h3.textContent = "Ergebnis: Die GML Datei ist nicht valide";
+                      report_status.textContent = "Sie entspricht nicht dem vorgegebenen Schema.";
                       console.log("invalid");
                       break;
                     }
                     case "valid": {
-                      h3.textContent = "Die Validierung war erfolgreich";
-                      report.textContent = "Gut gemacht";
+                      h3.textContent = "Ergebnis: Die Validierung war erfolgreich";
+                      report_status.textContent = "Die GML-Datei entspricht dem vorgegebenen Schema. Es wurden keine Fehler gefunden. Gut gemacht.";
                       console.log("valid");
 
                       break;
                     }
                     case "error": {
                       h3.textContent =
-                        "Keine Datei zum Validieren oder ungültige Datei";
+                        "Fehler: Keine Datei zum Validieren oder ungültige Datei";
+                      report_status.textContent = "Laden Sie entweder eine Datei hoch oder kopieren Sie die GML-Datei in das Textfeld.";
                       console.log("error");
 
                       break;
                     }
                   }
                   target.appendChild(h3);
+                  target.appendChild(report_status);
                 } else if (key === "report") {
                   const reportKeys = Object.keys(json.report);
                   for (const reportKey of reportKeys) {
