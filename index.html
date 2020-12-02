@@ -84,7 +84,7 @@
       <summary class="headline-04">Beispiel für einen validen Input (Brunnen)</summary>
       <pre>
         <code>
-        &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
           &lt;ogr:FeatureCollection
               xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
               xsi:schemaLocation=&quot;http://ogr.maptools.org/ brunnen_neu.xsd&quot;
@@ -92,13 +92,23 @@
               xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
             &lt;gml:boundedBy&gt;
               &lt;gml:Box&gt;
-                &lt;gml:coord&gt;&lt;gml:X&gt;390328.07203217&lt;/gml:X&gt;&lt;gml:Y&gt;5812275.53221021&lt;/gml:Y&gt;&lt;/gml:coord&gt;
-                &lt;gml:coord&gt;&lt;gml:X&gt;395999.795455024&lt;/gml:X&gt;&lt;gml:Y&gt;5816266.74498926&lt;/gml:Y&gt;&lt;/gml:coord&gt;
+                &lt;gml:coord&gt;
+                &lt;gml:X&gt;390328.07203217&lt;/gml:X&gt;
+                &lt;gml:Y&gt;5812275.53221021&lt;/gml:Y&gt;
+                &lt;/gml:coord&gt;
+                &lt;gml:coord&gt;
+                &lt;gml:X&gt;395999.795455024&lt;/gml:X&gt;
+                &lt;gml:Y&gt;5816266.74498926&lt;/gml:Y&gt;
+                &lt;/gml:coord&gt;
               &lt;/gml:Box&gt;
             &lt;/gml:boundedBy&gt;
             &lt;gml:featureMember&gt;
               &lt;ogr:brunnen_neu fid=&quot;brunnen.0&quot;&gt;
-                &lt;ogr:geometryProperty&gt;&lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;&lt;gml:coordinates&gt;390328.07203217,5816266.74498926&lt;/gml:coordinates&gt;&lt;/gml:Point&gt;&lt;/ogr:geometryProperty&gt;
+                &lt;ogr:geometryProperty&gt;
+                &lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;
+                &lt;gml:coordinates&gt;390328.07203217,5816266.74498926&lt;/gml:coordinates&gt;
+                &lt;/gml:Point&gt;
+                &lt;/ogr:geometryProperty&gt;
                 &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
                 &lt;ogr:bezirk&gt;Friedrichshain-Kreuzberg&lt;/ogr:bezirk&gt;
                 &lt;ogr:bezeichn&gt;Zierbrunnen&lt;/ogr:bezeichn&gt;
@@ -116,7 +126,11 @@
             &lt;/gml:featureMember&gt;
             &lt;gml:featureMember&gt;
               &lt;ogr:brunnen_neu fid=&quot;brunnen.1&quot;&gt;
-                &lt;ogr:geometryProperty&gt;&lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;&lt;gml:coordinates&gt;395999.795455024,5815683.23434905&lt;/gml:coordinates&gt;&lt;/gml:Point&gt;&lt;/ogr:geometryProperty&gt;
+                &lt;ogr:geometryProperty&gt;
+                &lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;
+                &lt;gml:coordinates&gt;395999.795455024,5815683.23434905&lt;/gml:coordinates&gt;
+                &lt;/gml:Point&gt;
+                &lt;/ogr:geometryProperty&gt;
                 &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
                 &lt;ogr:bezirk&gt;Friedrichshain-Kreuzberg&lt;/ogr:bezirk&gt;
                 &lt;ogr:bezeichn&gt;Font&#xE4;ne&lt;/ogr:bezeichn&gt;
@@ -134,7 +148,11 @@
             &lt;/gml:featureMember&gt;
             &lt;gml:featureMember&gt;
               &lt;ogr:brunnen_neu fid=&quot;brunnen.2&quot;&gt;
-                &lt;ogr:geometryProperty&gt;&lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;&lt;gml:coordinates&gt;394529.348641691,5812275.53221021&lt;/gml:coordinates&gt;&lt;/gml:Point&gt;&lt;/ogr:geometryProperty&gt;
+                &lt;ogr:geometryProperty&gt;
+                &lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;
+                &lt;gml:coordinates&gt;394529.348641691,5812275.53221021&lt;/gml:coordinates&gt;
+                &lt;/gml:Point&gt;
+                &lt;/ogr:geometryProperty&gt;
                 &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
                 &lt;ogr:bezirk&gt;Mitte&lt;/ogr:bezirk&gt;
                 &lt;ogr:bezeichn&gt;Plansche&lt;/ogr:bezeichn&gt;
@@ -151,87 +169,99 @@
               &lt;/ogr:brunnen_neu&gt;
             &lt;/gml:featureMember&gt;
           &lt;/ogr:FeatureCollection&gt;
-
         </code>
       </pre>
-      </details>
-
+    </details>
     <details>
       <summary class="headline-04">Beispiel für einen nicht validen Input (Brunnen)</summary>
-
-        <pre><code>
-        &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-          &lt;ogr:FeatureCollection
-              xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-              xsi:schemaLocation=&quot;http://ogr.maptools.org/ brunnen_neu.xsd&quot;
-              xmlns:ogr=&quot;http://ogr.maptools.org/&quot;
-              xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
-            &lt;gml:boundedBy&gt;
-              &lt;gml:Box&gt;
-                &lt;gml:coord&gt;&lt;gml:X&gt;390328.07203217&lt;/gml:X&gt;&lt;gml:Y&gt;5812275.53221021&lt;/gml:Y&gt;&lt;/gml:coord&gt;
-                &lt;gml:coord&gt;&lt;gml:X&gt;395999.795455024&lt;/gml:X&gt;&lt;gml:Y&gt;5816266.74498926&lt;/gml:Y&gt;&lt;/gml:coord&gt;
-              &lt;/gml:Box&gt;
-            &lt;/gml:boundedBy&gt;
-            &lt;gml:featureMember&gt;
-              &lt;ogr:brunnen_neu fid=&quot;brunnen.0&quot;&gt;
-                &lt;ogr:geometryProperty&gt;&lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;&lt;gml:coordinates&gt;390328.07203217,5816266.74498926&lt;/gml:coordinates&gt;&lt;/gml:Point&gt;&lt;/ogr:geometryProperty&gt;
-                &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
-                &lt;ogr:bezirk&gt;Fh-Kr&lt;/ogr:bezirk&gt;
-                &lt;ogr:bezeichn&gt;Zierbrunnen&lt;/ogr:bezeichn&gt;
-                &lt;ogr:jahr&gt;1893&lt;/ogr:jahr&gt;
-                &lt;ogr:kuenstler&gt;Max Mustermann&lt;/ogr:kuenstler&gt;
-                &lt;ogr:einschraen&gt;Ab Oktober nicht in Betrieb.&lt;/ogr:einschraen&gt;
-                &lt;ogr:lagebez&gt;Musterpark&lt;/ogr:lagebez&gt;
-                &lt;ogr:plz&gt;10965&lt;/ogr:plz&gt;
-                &lt;ogr:ortsteil&gt;Kreuzberg&lt;/ogr:ortsteil&gt;
-                &lt;ogr:link&gt;https://beispiel-url.de&lt;/ogr:link&gt;
-                &lt;ogr:bemerkung&gt;Der Wasserfall ist 24m hoch.&lt;/ogr:bemerkung&gt;
-                &lt;ogr:eigenname&gt;Wasserfall&lt;/ogr:eigenname&gt;
-                &lt;ogr:datum&gt;2019/11/13&lt;/ogr:datum&gt;
-              &lt;/ogr:brunnen_neu&gt;
-            &lt;/gml:featureMember&gt;
-            &lt;gml:featureMember&gt;
-              &lt;ogr:brunnen_neu fid=&quot;brunnen.1&quot;&gt;
-                &lt;ogr:geometryProperty&gt;&lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;&lt;gml:coordinates&gt;395999.795455024,5815683.23434905&lt;/gml:coordinates&gt;&lt;/gml:Point&gt;&lt;/ogr:geometryProperty&gt;
-                &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
-                &lt;ogr:bezirk&gt;Friedrichshain-Kreuzberg&lt;/ogr:bezirk&gt;
-                &lt;ogr:bezeichn&gt;Font&#xE4;ne&lt;/ogr:bezeichn&gt;
-                &lt;ogr:jahr xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:kuenstler xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:einschraen xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:lagebez xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:plz&gt;&lt;/ogr:plz&gt;
-                &lt;ogr:ortsteil xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:link xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:bemerkung xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:eigenname xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:datum&gt;2019/11/13&lt;/ogr:datum&gt;
-              &lt;/ogr:brunnen_neu&gt;
-            &lt;/gml:featureMember&gt;
-            &lt;gml:featureMember&gt;
-              &lt;ogr:brunnen_neu fid=&quot;brunnen.2&quot;&gt;
-                &lt;ogr:geometryProperty&gt;&lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;&lt;gml:coordinates&gt;394529.348641691,5812275.53221021&lt;/gml:coordinates&gt;&lt;/gml:Point&gt;&lt;/ogr:geometryProperty&gt;
-                &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
-                &lt;ogr:bezirk&gt;Mitte&lt;/ogr:bezirk&gt;
-                &lt;ogr:bezeichn&gt;kleiner Brunnen&lt;/ogr:bezeichn&gt;
-                &lt;ogr:jahr xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:kuenstler xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:einschraen xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:lagebez xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:plz xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:ortsteil xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:link xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:bemerkung xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:eigenname xsi:nil=&quot;true&quot;/&gt;
-                &lt;ogr:datum&gt;2019/11/13&lt;/ogr:datum&gt;
-              &lt;/ogr:brunnen_neu&gt;
-            &lt;/gml:featureMember&gt;
-          &lt;/ogr:FeatureCollection&gt;
-
-      </code>
-    </pre>
-
-    </details>
+      <pre>
+        <code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        &lt;ogr:FeatureCollection
+            xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+            xsi:schemaLocation=&quot;http://ogr.maptools.org/ brunnen_neu.xsd&quot;
+            xmlns:ogr=&quot;http://ogr.maptools.org/&quot;
+            xmlns:gml=&quot;http://www.opengis.net/gml&quot;&gt;
+          &lt;gml:boundedBy&gt;
+            &lt;gml:Box&gt;
+              &lt;gml:coord&gt;
+              &lt;gml:X&gt;390328.07203217&lt;/gml:X&gt;
+              &lt;gml:Y&gt;5812275.53221021&lt;/gml:Y&gt;&lt;
+              /gml:coord&gt;
+              &lt;gml:coord&gt;&lt;gml:X&gt;395999.795455024&lt;/gml:X&gt;
+              &lt;gml:Y&gt;5816266.74498926&lt;/gml:Y&gt;&lt;/gml:coord&gt;
+            &lt;/gml:Box&gt;
+          &lt;/gml:boundedBy&gt;
+          &lt;gml:featureMember&gt;
+            &lt;ogr:brunnen_neu fid=&quot;brunnen.0&quot;&gt;
+              &lt;ogr:geometryProperty&gt;
+              &lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;
+              &lt;gml:coordinates&gt;390328.07203217,5816266.74498926&lt;/gml:coordinates&gt;
+              &lt;/gml:Point&gt;
+              &lt;/ogr:geometryProperty&gt;
+              &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
+              &lt;ogr:bezirk&gt;Fh-Kr&lt;/ogr:bezirk&gt;
+              &lt;ogr:bezeichn&gt;Zierbrunnen&lt;/ogr:bezeichn&gt;
+              &lt;ogr:jahr&gt;1893&lt;/ogr:jahr&gt;
+              &lt;ogr:kuenstler&gt;Max Mustermann&lt;/ogr:kuenstler&gt;
+              &lt;ogr:einschraen&gt;Ab Oktober nicht in Betrieb.&lt;/ogr:einschraen&gt;
+              &lt;ogr:lagebez&gt;Musterpark&lt;/ogr:lagebez&gt;
+              &lt;ogr:plz&gt;10965&lt;/ogr:plz&gt;
+              &lt;ogr:ortsteil&gt;Kreuzberg&lt;/ogr:ortsteil&gt;
+              &lt;ogr:link&gt;https://beispiel-url.de&lt;/ogr:link&gt;
+              &lt;ogr:bemerkung&gt;Der Wasserfall ist 24m hoch.&lt;/ogr:bemerkung&gt;
+              &lt;ogr:eigenname&gt;Wasserfall&lt;/ogr:eigenname&gt;
+              &lt;ogr:datum&gt;2019/11/13&lt;/ogr:datum&gt;
+            &lt;/ogr:brunnen_neu&gt;
+          &lt;/gml:featureMember&gt;
+          &lt;gml:featureMember&gt;
+            &lt;ogr:brunnen_neu fid=&quot;brunnen.1&quot;&gt;
+              &lt;ogr:geometryProperty&gt;
+              &lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;
+              &lt;gml:coordinates&gt;395999.795455024,5815683.23434905&lt;/gml:coordinates&gt;
+              &lt;/gml:Point&gt;
+              &lt;/ogr:geometryProperty&gt;
+              &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
+              &lt;ogr:bezirk&gt;Friedrichshain-Kreuzberg&lt;/ogr:bezirk&gt;
+              &lt;ogr:bezeichn&gt;Font&#xE4;ne&lt;/ogr:bezeichn&gt;
+              &lt;ogr:jahr xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:kuenstler xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:einschraen xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:lagebez xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:plz&gt;&lt;/ogr:plz&gt;
+              &lt;ogr:ortsteil xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:link xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:bemerkung xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:eigenname xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:datum&gt;2019/11/13&lt;/ogr:datum&gt;
+            &lt;/ogr:brunnen_neu&gt;
+          &lt;/gml:featureMember&gt;
+          &lt;gml:featureMember&gt;
+            &lt;ogr:brunnen_neu fid=&quot;brunnen.2&quot;&gt;
+              &lt;ogr:geometryProperty&gt;
+              &lt;gml:Point srsName=&quot;EPSG:25833&quot;&gt;
+              &lt;gml:coordinates&gt;394529.348641691,5812275.53221021&lt;/gml:coordinates&gt;
+              &lt;/gml:Point&gt;
+              &lt;/ogr:geometryProperty&gt;
+              &lt;ogr:uid&gt;02001&lt;/ogr:uid&gt;
+              &lt;ogr:bezirk&gt;Mitte&lt;/ogr:bezirk&gt;
+              &lt;ogr:bezeichn&gt;kleiner Brunnen&lt;/ogr:bezeichn&gt;
+              &lt;ogr:jahr xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:kuenstler xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:einschraen xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:lagebez xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:plz xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:ortsteil xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:link xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:bemerkung xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:eigenname xsi:nil=&quot;true&quot;/&gt;
+              &lt;ogr:datum&gt;2019/11/13&lt;/ogr:datum&gt;
+            &lt;/ogr:brunnen_neu&gt;
+          &lt;/gml:featureMember&gt;
+        &lt;/ogr:FeatureCollection&gt;
+    </code>
+  </pre>
+  </details>
   </div>
 
   <div class="section-wrapper white">
