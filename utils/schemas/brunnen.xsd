@@ -16,7 +16,7 @@
     <xs:extension base="gml:AbstractFeatureType">
       <xs:sequence>
         <xs:element name="geometryProperty" type="gml:PointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
-        <xs:element name="uid" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="uid" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="8"/>
@@ -42,7 +42,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="bezeichn" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="bezeichn" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
                 <xs:enumeration value="Plansche" />
@@ -51,38 +51,38 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="jahr" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="jahr" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="4"/>
+              <xs:length value="4"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="kuenstler" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="kuenstler" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="30"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="einschraen" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="einschraen" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="lagebez" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="lagebez" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="plz" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:element name="plz" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="5"/>
+              <xs:length value="5"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -93,30 +93,31 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="link" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="link" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="bemerkung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="bemerkung" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="eigenname" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="eigenname" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="25"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="datum" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="datum" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
+            <xs:length value="10"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
