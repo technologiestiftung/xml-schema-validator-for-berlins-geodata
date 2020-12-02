@@ -19,7 +19,7 @@ def validation(schema_name, xml):
     # find element name from input xml
     previous_elementtag = ''
     for elementtag in xml_string.getiterator():
-        if previous_elementtag == "{http://www.opengis.net/gml}featureMember":
+        if (previous_elementtag == "{http://www.opengis.net/gml}featureMember") or (previous_elementtag == "{http://ogr.maptools.org/}featureMember"):
             elementtag_from_gml = str(elementtag.tag)
             elementtag_from_gml = elementtag_from_gml.replace('{http://ogr.maptools.org/}', '')
             break
