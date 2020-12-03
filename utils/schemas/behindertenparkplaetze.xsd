@@ -19,7 +19,9 @@
         <xs:element name="uid" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
+              <xs:minLength value="4"/>
               <xs:maxLength value="8"/>
+              <xs:pattern value="([0-1][0-9])([0-9])*"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -42,45 +44,47 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="bezeichnun" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="bezeichnun" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="30"/>
+              <xs:enumeration value="Behindertenparkplatz" />
+              <xs:enumeration value="Eingeschränktes Halteverbot" />
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="bemerkung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="bemerkung" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="anzahl" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="anzahl" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:integer">
               <xs:totalDigits value="2"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="polizei" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="polizei" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="4"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="standort" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="standort" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="plz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="plz" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
-              <xs:maxLength value="5"/>
+              <xs:length value="5"/>
+              <xs:pattern value="[1][0-4][0-9][0-9][0-9]"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -91,7 +95,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="gps_lat" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="gps_lat" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:decimal">
               <xs:totalDigits value="11"/>
@@ -99,7 +103,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="gps_lon" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="gps_lon" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:decimal">
               <xs:totalDigits value="11"/>
@@ -110,6 +114,7 @@
         <xs:element name="datum" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
+            <xs:length value="10"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
