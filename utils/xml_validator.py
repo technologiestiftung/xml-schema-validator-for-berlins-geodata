@@ -46,6 +46,10 @@ def validation(schema_name, xml):
                     cleaned_error_message = error.message.replace(text, "")
                 cleaned_error_message = cleaned_error_message.replace(
                     "The element is not 'nillable'.", "This element is missing.")
+                cleaned_error_message = cleaned_error_message.replace(
+                    "is not accepted by the pattern '[1][0-4][0-9][0-9][0-9]'.", "is not an existing postcode for Berlin.")
+                cleaned_error_message = cleaned_error_message.replace(
+                    "is not accepted by the pattern '([0-1][0-9])([0-9])*'.", "is not a valid unique ID. The ID is comprised of one 2-digit identifier unique to each Bezirk (spanning from 01-12) and a second object identifier (spanning from 1-999999) assigned by each Bezirk individually.")
                 report[error.line] = cleaned_error_message
                 error_line_list.append(error.line)
         validation_output["status"] = "invalid"
