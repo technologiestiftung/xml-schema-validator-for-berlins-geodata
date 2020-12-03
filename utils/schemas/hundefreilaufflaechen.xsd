@@ -19,7 +19,9 @@
         <xs:element name="uid" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
+              <xs:minLength value="4"/>
               <xs:maxLength value="8"/>
+              <xs:pattern value="([0-1][0-9])([0-9])*"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -42,28 +44,28 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="info" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="info" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="adresse" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="adresse" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="254"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="bezeich" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="bezeich" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="30"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="zustaendig" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="zustaendig" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="32"/>
@@ -73,6 +75,7 @@
         <xs:element name="datum" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
+            <xs:length value="10"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
