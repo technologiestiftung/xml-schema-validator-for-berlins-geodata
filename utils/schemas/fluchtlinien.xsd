@@ -57,7 +57,14 @@
         </xs:element>
         <xs:element name="a_datum" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
-            <xs:restriction base="xs:string">
+            <xs:restriction base="xs:date">
+            <xs:length value="10"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="a_datum2" nillable="true" minOccurs="1" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:date">
             <xs:length value="10"/>
             </xs:restriction>
           </xs:simpleType>
@@ -69,13 +76,14 @@
               <xs:enumeration value="Baufluchtlinie" />
               <xs:enumeration value="Straßen- und Baufluchtlinie" />
               <xs:enumeration value="Freiflächengrenze" />
+              <xs:enumeration value="Straßengrenze" />
               <xs:maxLength value="28"/>
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
         <xs:element name="datum" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
-            <xs:restriction base="xs:string">
+            <xs:restriction base="xs:date">
             <xs:length value="10"/>
             </xs:restriction>
           </xs:simpleType>
