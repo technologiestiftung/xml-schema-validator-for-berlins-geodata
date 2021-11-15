@@ -57,15 +57,13 @@
         </xs:element>
         <xs:element name="a_datum" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
-            <xs:restriction base="xs:string">
-            <xs:length value="10"/>
+            <xs:restriction base="xs:date">
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
         <xs:element name="a_datum2" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
-            <xs:restriction base="xs:string">
-            <xs:length value="10"/>
+            <xs:restriction base="xs:date">
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
@@ -83,8 +81,7 @@
         </xs:element>
         <xs:element name="datum" nillable="false" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
-            <xs:restriction base="xs:string">
-            <xs:length value="10"/>
+            <xs:restriction base="xs:date">
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
